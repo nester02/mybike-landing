@@ -1,10 +1,11 @@
 .header {
+  background-color: $bg-color-dark;
   background-image: url(../images/hero-bg.webp);
   background-size: cover;
-  background-position: right;
+  background-position: center;
 
-  @include on-tablet {
-    background-position: center;
+  @media (orientation: portrait) {
+    background-image: url(../images/hero-bg-mobile.webp);
   }
 
   @include on-desktop {
@@ -77,13 +78,12 @@
   .icon--phone .icon__phone-number {
     position: absolute;
     top: 50%;
-    left: 100%;
+    right: 100%;
 
-    transform: translateY(-50%) translateX(-160px);
+    transform: translateY(-50%) translateX(50px);
     opacity: 0;
 
     white-space: nowrap;
-    margin-left: 12px;
     padding: 6px 12px;
 
     color: $text-color-light;
@@ -100,9 +100,11 @@
       opacity $effect-duration ease;
   }
 
-  .icon--phone:hover .icon__phone-number {
-    transform: translateY(-50%) translateX(-210px);
+  .icon--phone:hover .icon__phone-number,
+  .icon--phone:focus-visible .icon__phone-number {
+    transform: translateY(-50%);
     opacity: 1;
+    pointer-events: auto;
   }
 
   &__logo-link {

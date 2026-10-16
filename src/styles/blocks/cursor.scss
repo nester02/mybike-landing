@@ -1,4 +1,9 @@
 a,
-.contacts__form-button {
-  cursor: $custom-cursor;
+button,
+label[for],
+select,
+input[type='submit'],
+input[type='checkbox'],
+input[type='radio'] {
+  cursor: pointer;
 }
